@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pagamento</h1>
+        </header>
+        <main>
+            <section class="payment-methods">
+                <h2>Escolha o Método de Pagamento</h2>
+
+                <!-- Cartão de Crédito -->
+                <label>
+                    <input type="radio" name="payment-method" value="credit-card" onclick="showPaymentFields('credit-card')"> 
+                    Cartão de Crédito
+                </label>
+
+                <!-- Pix -->
+                <label>
+                    <input type="radio" name="payment-method" value="pix" onclick="showPaymentFields('pix')"> 
+                    Pix
+                </label>
+
+                <!-- Boleto Bancário -->
+                <label>
+                    <input type="radio" name="payment-method" value="boleto" onclick="showPaymentFields('boleto')"> 
+                    Boleto Bancário
+                </label>
+
+                <!-- Formulário de pagamento que será exibido conforme a escolha -->
+                <div id="credit-card-form" class="payment-form" style="display: none;">
+                    <h3>Cartão de Crédito</h3>
+                    <p>Informe os dados do seu cartão de crédito para concluir a compra.</p>
+                    <form>
+                        <label for="card-name">Nome no Cartão</label>
+                        <input type="text" id="card-name" placeholder="Nome no cartão" required>
+                        
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        
+                        <label for="card-expiry">Data de Expiração</label>
+                        <input type="month" id="card-expiry" required>
+                        
+                        <label for="card-cvc">Código de Segurança (CVC)</label>
+                        <input type="text" id="card-cvc" placeholder="XXX" required>
+                        
+                        <button type="submit">Pagar com Cartão de Crédito</button>
+                    </form>
+                </div>
+
+                <div id="pix-form" class="payment-form" style="display: none;">
+                    <h3>Pix</h3>
+                    <p>Escolha o Pix para pagar diretamente através de uma chave ou QR Code.</p>
+                    <form>
+                        <label for="pix-key">Chave do Pix</label>
+                        <input type="text" id="pix-key" placeholder="Ex: cpf@dominio.com" required>
+                        
+                        <button type="submit">Pagar com Pix</button>
+                    </form>
+                </div>
+
+                <div id="boleto-form" class="payment-form" style="display: none;">
+                    <h3>Boleto Bancário</h3>
+                    <p>Escolha o boleto bancário e realize o pagamento através do banco de sua preferência.</p>
+                    <form>
+                        <button type="submit">Gerar Boleto</button>
+                    </form>
+                </div>
+            </section>
+
+            <h2>Total a Pagar: R$ <span id="payment-total">0.00</span></h2>
+            <button onclick="confirmPayment()">Confirmar Pagamento</button>
+        </main>
+    </div>
+
+    <script>
+        // Função para exibir os campos necessários dependendo do método escolhido
+        function showPaymentFields(method) {
+            // Oculta todos os formulários de pagamento
+            document.getElementById('credit-card-form').style.display = 'none';
+            document.getElementById('pix-form').style.display = 'none';
+            document.getElementById('boleto-form').style.display = 'none';
+
+            // Exibe o formulário correspondente ao método de pagamento escolhido
+            if (method === 'credit-card') {
+                document.getElementById('credit-card-form').style.display = 'block';
+            } else if (method === 'pix') {
+                document.getElementById('pix-form').style.display = 'block';
+            } else if (method === 'boleto') {
+                document.getElementById('boleto-form').style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            const total = localStorage.getItem('cartTotal');
+            if (total) {
+                document.getElementById('payment-total').textContent = total;
+            }
+        }
+
+        function confirmPayment() {
+            alert("Pagamento Confirmado!");
+            localStorage.removeItem('cartTotal');
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

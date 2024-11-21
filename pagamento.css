@@ -1,0 +1,115 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Estilos do cabeçalho */
+header {
+    background-color: #8e44ad;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Estilos principais do conteúdo */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos dos métodos de pagamento */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.payment-methods label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Estilos dos formulários de pagamento */
+.payment-form {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
+}
+
+.payment-form h3 {
+    margin-top: 0;
+    color: #8e44ad;
+}
+
+.payment-form p {
+    margin: 1rem 0;
+    color: #555;
+}
+
+/* Estilos do formulário de pagamento */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+input, button {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1rem;
+    border: 1px solid #D29AF0;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #D29AF0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #b57dde;
+}
+
+/* Estilo para o botão de confirmação de pagamento */
+button[type="submit"] {
+    margin-top: 1rem;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #8e44ad;
+}
